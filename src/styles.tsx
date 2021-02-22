@@ -9,5 +9,19 @@ export const styles = {
     },
     footer: {
         alignSelf: 'flex-end' as const
+    },
+    ital: {
+        fontStyle: 'italic',
+        color: 'dimgrey'
+    },
+    cardHeader: {
+        paddingTop: 2,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 2,
+        fontSize: 16,
+        fontWeight: 'bold' as const,
+        backgroundColor: 'rgba(247,247,247,1.0)',
+        textAlign: 'center' as const
     }
 }

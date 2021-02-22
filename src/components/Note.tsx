@@ -1,13 +1,22 @@
-import { Divider } from 'antd'
-import React from 'react'
+import { Card, Divider } from 'antd'
+import { styles } from '../styles'
+import { NoteType } from './CustomTypes'
 
-interface Props { }
+interface Props {
+    note: NoteType
+}
 
 function Note(props: Props) {
-    const { } = props
+    const { id, title, body } = props.note
 
     return (
-        <div>card from antd</div>
+        <Card>
+            <div style={styles.cardHeader}>
+                {title}
+            </div>
+            <Divider />
+            {body}
+        </Card>
     )
 }
 
