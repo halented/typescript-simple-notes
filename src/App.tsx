@@ -1,10 +1,12 @@
 import { NoteData } from './NoteData'
 import { NoteType } from './components/CustomTypes'
 import { useState } from 'react'
-import { Layout, Button } from 'antd'
-import NotesContainer from './components/NotesContainer'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Layout } from 'antd'
 import { styles } from './styles'
-const { Header, Footer, Content } = Layout
+import NewNoteForm from './components/NewNoteForm'
+import AllNotes from './components/AllNotes'
+const { Header } = Layout
 
 
 function App() {
@@ -12,17 +14,17 @@ function App() {
 
 
   return (
-    <Layout>
-      <Header style={styles.header}>
-        NOTES
-      </Header>
-      <Content style={styles.notesBox}>
-        <NotesContainer notes={notes} />
-      </Content>
-      <Footer style={styles.footer}>
-        <Button>Add New</Button>
-      </Footer>
-    </Layout>
+    <Router>
+      <Layout>
+        <Header style={styles.header}>
+          NOTES
+        </Header>
+      </Layout>
+      <Route exact path='/' render={props =>
+        (<AllNotes {...props} notes={notes} />)
+      } />
+      <Route exact path='/new' component={NewNoteForm} />
+    </Router>
   );
 }
 
