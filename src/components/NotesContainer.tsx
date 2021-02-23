@@ -1,6 +1,5 @@
 import Note from "./Note"
-import { Card } from 'antd'
-import { styles } from '../styles'
+import { Card, PageHeader } from 'antd'
 import { NoteType } from './CustomTypes'
 
 
@@ -13,7 +12,7 @@ function NotesContainer(props: Props) {
 
     return (
         <Card>
-            <div style={styles.ital}>Click a Note to View</div>
+            <PageHeader title="All Current Notes" />
             {notes.map(note => <Note note={note} />)}
         </Card>
     )
