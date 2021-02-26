@@ -1,7 +1,6 @@
 import { NoteData } from './NoteData'
 import { NoteType } from './components/CustomTypes'
 import { useState } from 'react'
-// import { useHistory } from "react-router";
 import { Route, useHistory, withRouter } from 'react-router-dom'
 import { Layout } from 'antd'
 import { styles } from './styles'
@@ -11,7 +10,10 @@ const { Header } = Layout
 
 
 function App() {
-  const [notes, setNotes] = useState<Array<NoteType>>(NoteData)
+  // you could also define that the state returned by useState would be an array of notes by
+  // using the syntax: useState<Array<NoteType>>(NoteData)
+  // but that looks clunkier IMO.
+  const [notes, setNotes] = useState<NoteType[]>(NoteData)
   const history = useHistory();
 
   const handleSubmit = (ev: NoteType) => {
